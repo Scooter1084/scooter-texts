@@ -68,7 +68,6 @@
     <string name="keyword">키워드</string>
     <string name="manage_blocked_keywords">차단 키워드 관리</string>
     <string name="add_a_blocked_keyword">차단 키워드 추가</string>
-    <string name="app_launcher_name">메시지</string>
     <string name="type_a_message">메시지를 입력하세요…</string>
     <string name="message_not_sent_touch_retry">전송되지 않았습니다. 다시 시도하려면 탭하세요.</string>
     <string name="message_sending_error">\'%s\'에게 메시지를 보내지 못했습니다</string>
