@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="color_primary">@color/md_blue_700</color>
-    <color name="color_primary_dark">@color/md_blue_200_dark</color>
+    <!-- Scooter look: tangerine orange, cream and navy, like the other Scooter apps -->
+    <color name="scooter_orange">#FFFF7A1A</color>
+    <color name="scooter_orange_dark">#FFE85D00</color>
+    <color name="scooter_cream">#FFFFF6EC</color>
+    <color name="scooter_navy">#FF14213D</color>
+    <color name="color_primary">@color/scooter_orange</color>
+    <color name="color_primary_dark">@color/scooter_orange_dark</color>
     <color name="color_accent">@color/color_primary</color>
 
     <color name="pressed_item_foreground">#08000000</color>
@@ -27,8 +32,8 @@
     <color name="theme_dark_red_primary_color">@color/md_red_700</color>
 
     <!-- Default values -->
-    <color name="default_text_color">@color/theme_dark_text_color</color>
-    <color name="default_background_color">@color/theme_dark_background_color</color>
+    <color name="default_text_color">@color/scooter_navy</color>
+    <color name="default_background_color">@color/scooter_cream</color>
     <color name="default_primary_color">@color/color_primary</color>
     <color name="default_app_icon_color">@color/color_primary</color>
     <color name="default_accent_color">@color/color_primary</color>

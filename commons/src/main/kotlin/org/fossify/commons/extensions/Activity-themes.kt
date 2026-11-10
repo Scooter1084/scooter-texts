@@ -211,6 +211,8 @@ fun Activity.getThemeId(color: Int = baseConfig.primaryColor, showTransparentTop
             -12434878 -> R.style.AppTheme_Grey_800_core
             -16777216 -> R.style.AppTheme_Grey_900_core
 
+            -34278 -> R.style.AppTheme_Scooter_Orange_core // #FF7A1A, the Scooter orange
+
             else -> R.style.AppTheme_Green_900_core
         }
     }

@@ -252,7 +252,7 @@ open class BaseConfig(val context: Context) {
         set(isGlobalThemeEnabled) = prefs.edit().putBoolean(IS_GLOBAL_THEME_ENABLED, isGlobalThemeEnabled).apply()
 
     var isSystemThemeEnabled: Boolean
-        get() = prefs.getBoolean(IS_SYSTEM_THEME_ENABLED, isSPlus())
+        get() = prefs.getBoolean(IS_SYSTEM_THEME_ENABLED, false) // Scooter: orange by default, not the wallpaper colors
         set(isSystemThemeEnabled) = prefs.edit().putBoolean(IS_SYSTEM_THEME_ENABLED, isSystemThemeEnabled).apply()
 
     var wasCustomThemeSwitchDescriptionShown: Boolean

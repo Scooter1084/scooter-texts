@@ -151,4 +151,13 @@ class Config(context: Context) : BaseConfig(context) {
         get() = prefs.getBoolean(KEEP_CONVERSATIONS_ARCHIVED, false)
         set(keepConversationsArchived) = prefs.edit()
             .putBoolean(KEEP_CONVERSATIONS_ARCHIVED, keepConversationsArchived).apply()
+
+    // Scooter look (see ScooterLook.kt)
+    var scooterLookApplied: Boolean
+        get() = prefs.getBoolean("scooter_look_applied", false)
+        set(value) = prefs.edit().putBoolean("scooter_look_applied", value).apply()
+
+    var whatsNewSeenVersion: Int
+        get() = prefs.getInt("scooter_whats_new_seen_version", 0)
+        set(value) = prefs.edit().putInt("scooter_whats_new_seen_version", value).apply()
 }

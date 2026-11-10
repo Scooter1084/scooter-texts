@@ -29,6 +29,7 @@ import org.fossify.commons.helpers.ensureBackgroundThread
 import org.fossify.commons.helpers.isQPlus
 import org.fossify.commons.helpers.isTiramisuPlus
 import org.fossify.commons.models.RadioItem
+import com.scooter1084.texts.helpers.showScooterWhatsNew
 import com.scooter1084.texts.R
 import com.scooter1084.texts.databinding.ActivitySettingsBinding
 import com.scooter1084.texts.dialogs.ExportMessagesDialog
@@ -98,6 +99,7 @@ class SettingsActivity : SimpleActivity() {
         setupTopAppBar(binding.settingsAppbar, NavigationIcon.Arrow)
 
         setupCustomizeColors()
+        setupWhatsNew()
         setupCustomizeNotifications()
         setupUseEnglish()
         setupLanguage()
@@ -158,6 +160,12 @@ class SettingsActivity : SimpleActivity() {
     override fun onPause() {
         super.onPause()
         blockedNumbersAtPause = getBlockedNumbers().hashCode()
+    }
+
+    private fun setupWhatsNew() = binding.apply {
+        settingsWhatsNewHolder.setOnClickListener {
+            showScooterWhatsNew(all = true)
+        }
     }
 
     private fun setupCustomizeColors() = binding.apply {

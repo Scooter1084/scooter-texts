@@ -1115,6 +1115,14 @@
         <item name="colorAccent">@color/md_green_800</item>
     </style>
 
+    <style name="AppTheme.Scooter_Orange_core" parent="AppTheme.Base.Core">
+        <item name="colorPrimary">@color/scooter_orange</item>
+        <item name="colorPrimaryDark">@color/scooter_orange_dark</item>
+        <item name="colorAccent">@color/scooter_orange</item>
+        <item name="android:windowBackground">@color/scooter_cream</item>
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
+
     <style name="AppTheme.Green_900_core" parent="AppTheme.Base.Core">
         <item name="colorPrimary">@color/md_green_900</item>
         <item name="colorPrimaryDark">@color/md_green_900_dark</item>

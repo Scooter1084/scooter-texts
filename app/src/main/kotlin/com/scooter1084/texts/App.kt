@@ -11,12 +11,14 @@ import org.fossify.commons.helpers.PERMISSION_READ_CONTACTS
 import org.fossify.commons.helpers.ensureBackgroundThread
 import com.scooter1084.texts.extensions.rescheduleAllScheduledMessages
 import com.scooter1084.texts.helpers.MessagingCache
+import com.scooter1084.texts.helpers.applyScooterLookOnce
 
 class App : FossifyApp() {
     override val isAppLockFeatureAvailable = true
 
     override fun onCreate() {
         super.onCreate()
+        applyScooterLookOnce()
         if (hasPermission(PERMISSION_READ_CONTACTS)) {
             listOf(
                 ContactsContract.Contacts.CONTENT_URI,

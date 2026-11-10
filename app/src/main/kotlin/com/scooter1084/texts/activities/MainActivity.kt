@@ -22,7 +22,6 @@ import org.fossify.commons.extensions.beGoneIf
 import org.fossify.commons.extensions.beVisible
 import org.fossify.commons.extensions.beVisibleIf
 import org.fossify.commons.extensions.checkAppSideloading
-import org.fossify.commons.extensions.checkWhatsNew
 import org.fossify.commons.extensions.convertToBitmap
 import org.fossify.commons.extensions.fadeIn
 import org.fossify.commons.extensions.formatDateOrTime
@@ -48,7 +47,6 @@ import org.fossify.commons.helpers.SHORT_ANIMATION_DURATION
 import org.fossify.commons.helpers.ensureBackgroundThread
 import org.fossify.commons.helpers.isQPlus
 import org.fossify.commons.models.FAQItem
-import org.fossify.commons.models.Release
 import com.scooter1084.texts.BuildConfig
 import com.scooter1084.texts.R
 import com.scooter1084.texts.adapters.ConversationsAdapter
@@ -63,6 +61,7 @@ import com.scooter1084.texts.extensions.getConversations
 import com.scooter1084.texts.extensions.getMessages
 import com.scooter1084.texts.extensions.insertOrUpdateConversation
 import com.scooter1084.texts.extensions.messagesDB
+import com.scooter1084.texts.helpers.showScooterWhatsNew
 import com.scooter1084.texts.helpers.SEARCHED_MESSAGE_ID
 import com.scooter1084.texts.helpers.THREAD_ID
 import com.scooter1084.texts.helpers.THREAD_TITLE
@@ -677,9 +676,6 @@ class MainActivity : SimpleActivity() {
         initMessenger()
     }
 
-    private fun checkWhatsNewDialog() {
-        arrayListOf<Release>().apply {
-            checkWhatsNew(this, BuildConfig.VERSION_CODE)
-        }
-    }
+    // The shared Scooter What's new card (assets/whats-new), instead of Fossify's dialog
+    private fun checkWhatsNewDialog() = showScooterWhatsNew()
 }

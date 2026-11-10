@@ -12,6 +12,17 @@ A personal SMS/MMS texting app for Android. It can be set as the phone's default
 
 The debug build installs as **Scooter Texts (debug)** with the app ID `com.scooter1084.texts.debug`, so it can sit next to any other messaging app.
 
+## The Scooter look
+
+Same look as Scooter Household, Weather and Alarm:
+- **Colors:** tangerine orange `#FF7A1A` (icons, buttons, sent bubbles), cream `#FFF6EC` background, navy `#14213D`
+  text. They are the defaults in `commons/src/main/res/values/colors.xml`; Material You (wallpaper colors) is off by
+  default (`BaseConfig.isSystemThemeEnabled`). Customize colors in Settings still works.
+- **Font:** Nunito (from the shared kit), turned on once on first run by `helpers/ScooterLook.kt`.
+- **What's new:** the shared Scooter kit in `app/src/main/assets/whats-new/` (don't restyle it). For each update, add
+  notes at the TOP of `whatsnew.html` with `update` = the new number and bump `WHATS_NEW_VERSION` in `ScooterLook.kt`.
+  Each note shows once; a fresh install shows nothing; Settings › What's new shows all of them.
+
 ## Building it yourself
 
 Requires JDK 17 and the Android SDK.
