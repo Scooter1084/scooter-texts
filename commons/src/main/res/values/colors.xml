@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="color_primary">@color/md_green_900</color>
-    <color name="color_primary_dark">@color/md_green_200_dark</color>
+    <color name="color_primary">@color/md_blue_700</color>
+    <color name="color_primary_dark">@color/md_blue_200_dark</color>
     <color name="color_accent">@color/color_primary</color>
 
     <color name="pressed_item_foreground">#08000000</color>

@@ -85,11 +85,7 @@ const val FAKE_VERSION_APP_LABEL =
 fun Context.fakeVersionCheck(
     showConfirmationDialog: () -> Unit
 ) {
-    if (!packageName.startsWith("org.fossify.", true)) {
-        if ((0..50).random() == 10 || baseConfig.appRunCount % 100 == 0) {
-            showConfirmationDialog()
-        }
-    }
+    // Scooter Texts: modified-app warning removed.
 }
 
 fun ComponentActivity.appOnSdCardCheckCompose(

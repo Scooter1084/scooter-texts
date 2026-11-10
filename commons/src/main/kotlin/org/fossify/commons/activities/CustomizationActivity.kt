@@ -757,11 +757,6 @@ class CustomizationActivity : BaseSimpleActivity() {
     }
 
     private fun pickPrimaryColor() {
-        if (!packageName.startsWith("org.fossify.", true) && baseConfig.appRunCount > 50) {
-            finish()
-            return
-        }
-
         curPrimaryLineColorPicker = LineColorPickerDialog(
             activity = this,
             color = curPrimaryColor,
@@ -919,7 +914,7 @@ class CustomizationActivity : BaseSimpleActivity() {
         val showThankYouFeatures = canAccessGlobalConfig()
                 || resources.getBoolean(R.bool.is_google_play_build)
         binding.applyToAllNote.beVisibleIf(!canAccessGlobalConfig())
-        binding.applyToAllHolder.beVisibleIf(showThankYouFeatures)
+        binding.applyToAllHolder.beVisibleIf(false)
         binding.applyToAllDivider.root.beVisibleIf(showThankYouFeatures)
         binding.settingsAllFossifyAppsLabel.beVisibleIf(showThankYouFeatures)
         binding.applyToAllSwitch.isChecked = baseConfig.isGlobalThemeEnabled

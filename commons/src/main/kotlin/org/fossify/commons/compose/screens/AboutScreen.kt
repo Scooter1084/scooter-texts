@@ -112,7 +112,7 @@ internal fun OtherSection(
 
         TwoLinerTextItem(
             click = onPrivacyPolicyClick,
-            text = stringResource(id = R.string.privacy_policy),
+            text = stringResource(id = R.string.based_on_fossify_messages),
             icon = R.drawable.ic_policy_outline_vector
         )
         TwoLinerTextItem(

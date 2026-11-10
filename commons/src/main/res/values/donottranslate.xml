@@ -1,4 +1,5 @@
 <resources>
+    <string name="based_on_fossify_messages">Based on Fossify Messages (GPL-3.0)</string>
     <string name="package_name">org.fossify.commons</string>
     <string name="pro">Pro</string>
     <string name="fossify_commons">Fossify Commons</string>

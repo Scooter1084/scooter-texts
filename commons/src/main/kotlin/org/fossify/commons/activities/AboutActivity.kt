@@ -66,51 +66,17 @@ class AboutActivity : BaseComposeActivity() {
             val context = LocalContext.current
             val resources = context.resources
             AppThemeSurface {
-                val showGoogleRelations =
-                    remember { resources.getBoolean(R.bool.is_google_play_build) }
-                val showGithubRelations = showGithubRelations()
-                val showDonationLinks = remember { !isThankYouInstalled() || !showGoogleRelations }
-                val onEmailClickAlertDialogState = getOnEmailClickAlertDialogState()
                 AboutScreen(
                     goBack = ::finish,
-                    helpUsSection = {
-                        HelpUsSection(
-                            onRateThisAppClick = ::onRateThisAppClick,
-                            onInviteClick = ::onInviteClick,
-                            onContributorsClick = ::onContributorsClick,
-                            showDonate = showDonationLinks,
-                            onDonateClick = ::onDonateClick,
-                            showInvite = showGoogleRelations || showGithubRelations,
-                            showRateUs = showGoogleRelations
-                        )
-                    },
-                    aboutSection = {
-                        val setupFAQ = showFAQ()
-                        if (setupFAQ || showGithubRelations) {
-                            AboutSection(
-                                setupFAQ = setupFAQ,
-                                setupKnownIssues = showGithubRelations,
-                                onFAQClick = ::launchFAQActivity,
-                                onKnownIssuesClick = ::launchIssueTracker,
-                                onEmailClick = {
-                                    onEmailClick(onEmailClickAlertDialogState::show)
-                                }
-                            )
-                        }
-                    },
-                    socialSection = {
-                        SocialSection(
-                            onGithubClick = ::onGithubClick,
-                            onRedditClick = ::onRedditClick,
-                            onTelegramClick = ::onTelegramClick
-                        )
-                    }
+                    helpUsSection = {},
+                    aboutSection = {},
+                    socialSection = {}
                 ) {
                     val (versionName, packageName) = getPackageInfo()
                     OtherSection(
-                        showMoreApps = showGoogleRelations,
-                        onMoreAppsClick = ::launchMoreAppsFromUsIntent,
-                        onPrivacyPolicyClick = ::onPrivacyPolicyClick,
+                        showMoreApps = false,
+                        onMoreAppsClick = {},
+                        onPrivacyPolicyClick = ::onCreditClick,
                         onLicenseClick = ::onLicenseClick,
                         versionName = versionName,
                         packageName = packageName,
@@ -119,6 +85,10 @@ class AboutActivity : BaseComposeActivity() {
                 }
             }
         }
+    }
+
+    private fun onCreditClick() {
+        launchViewIntent("https://github.com/FossifyOrg/Messages")
     }
 
     private fun getGithubUrl(): String {
@@ -201,11 +171,7 @@ class AboutActivity : BaseComposeActivity() {
         val separator = "------------------------------"
         val body = "$appVersion$newline$deviceOS$newline$separator$newline$newline"
 
-        val address = if (packageName.startsWith("org.fossify")) {
-            getString(R.string.my_email)
-        } else {
-            getString(R.string.my_fake_email)
-        }
+        val address = getString(R.string.my_fake_email)
 
         val selectorIntent = Intent(ACTION_SENDTO)
             .setData("mailto:$address".toUri())

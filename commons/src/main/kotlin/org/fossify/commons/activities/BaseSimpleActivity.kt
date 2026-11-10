@@ -195,11 +195,6 @@ abstract class BaseSimpleActivity : EdgeToEdgeActivity() {
         WindowCompat.enableEdgeToEdge(window)
         registerBackPressedCallback()
 
-        if (!packageName.startsWith("org.fossify.", true)) {
-            if ((0..50).random() == 10 || baseConfig.appRunCount % 100 == 0) {
-                showModdedAppWarning()
-            }
-        }
     }
 
     private fun installFontInflaterFactory() {
@@ -685,10 +680,7 @@ abstract class BaseSimpleActivity : EdgeToEdgeActivity() {
     // synchronous return value determines only if we are showing the SAF dialog, callback result tells if the SD or OTG permission has been granted
     fun handleSAFDialog(path: String, callback: (success: Boolean) -> Unit): Boolean {
         hideKeyboard()
-        return if (!packageName.startsWith("org.fossify")) {
-            callback(true)
-            false
-        } else if (isShowingSAFDialog(path) || isShowingOTGDialog(path)) {
+        return if (isShowingSAFDialog(path) || isShowingOTGDialog(path)) {
             funAfterSAFPermission = callback
             true
         } else {
@@ -703,10 +695,7 @@ abstract class BaseSimpleActivity : EdgeToEdgeActivity() {
         callback: (success: Boolean) -> Unit
     ): Boolean {
         hideKeyboard()
-        return if (!packageName.startsWith("org.fossify")) {
-            callback(true)
-            false
-        } else if (isShowingSAFDialogSdk30(path, showRationale)) {
+        return if (isShowingSAFDialogSdk30(path, showRationale)) {
             funAfterSdk30Action = callback
             true
         } else {
@@ -733,10 +722,7 @@ abstract class BaseSimpleActivity : EdgeToEdgeActivity() {
         callback: (success: Boolean) -> Unit
     ): Boolean {
         hideKeyboard()
-        return if (!packageName.startsWith("org.fossify")) {
-            callback(true)
-            false
-        } else if (isShowingSAFCreateDocumentDialogSdk30(path)) {
+        return if (isShowingSAFCreateDocumentDialogSdk30(path)) {
             funAfterSdk30Action = callback
             true
         } else {
@@ -751,10 +737,7 @@ abstract class BaseSimpleActivity : EdgeToEdgeActivity() {
         callback: (success: Boolean) -> Unit
     ): Boolean {
         hideKeyboard()
-        return if (!packageName.startsWith("org.fossify")) {
-            callback(true)
-            false
-        } else if (isShowingAndroidSAFDialog(path, openInSystemAppAllowed)) {
+        return if (isShowingAndroidSAFDialog(path, openInSystemAppAllowed)) {
             funAfterSAFPermission = callback
             true
         } else {
