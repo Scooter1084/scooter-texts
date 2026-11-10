@@ -1,0 +1,135 @@
+/*
+ * Scooter "What's new" — the shared look (Scooter Fit, Scooter Household, and any app after them).
+ * A card centered over the dimmed screen, a tilted orange "What's new!" that pops in, one line saying which app,
+ * the notes with their emoji in a column, and a full-width "Let's Gooooo!!" button.
+ *
+ * Both fonts ship with the kit (fonts/, SIL Open Font License), so it looks the same offline: Lilita One for the
+ * headline and button, Nunito for the rest. Change the color with show()'s `brand` option (or --wn-brand on
+ * .wn-backdrop); everything else is fixed on purpose, so every app matches.
+ */
+@font-face {
+  font-family: "Lilita One";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/lilita-one-latin.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 200 1000;
+  font-display: swap;
+  src: url("fonts/nunito-latin.woff2") format("woff2");
+}
+
+.wn-backdrop {
+  --wn-brand: #FF6A00;
+  --wn-brand-soft: #FFE3CF;
+  --wn-on-brand: #FFFFFF;
+  --wn-card: #FFFFFF;
+  --wn-ink: #1E140D;
+  --wn-muted: #6E5A4C;
+  --wn-line: #F0D9C8;
+  position: fixed;
+  inset: 0;
+  z-index: 2147483000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: calc(max(env(safe-area-inset-top, 0px), 16px) + 8px) 16px calc(max(env(safe-area-inset-bottom, 0px), 16px) + 8px);
+  background: rgba(0, 0, 0, .55);
+  font-family: "Nunito", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  .wn-backdrop:not(.wn-light) {
+    --wn-brand: #FF7A1A;
+    --wn-brand-soft: #3A2111;
+    --wn-on-brand: #1E0F04;
+    --wn-card: #21160F;
+    --wn-ink: #FBEFE6;
+    --wn-muted: #B89E8C;
+    --wn-line: #3B2A1E;
+  }
+}
+.wn-backdrop *, .wn-backdrop *::before, .wn-backdrop *::after { box-sizing: border-box; }
+
+.wn-card {
+  display: flex;
+  flex-direction: column;
+  width: min(460px, 100%);
+  max-height: 100%;
+  padding: 18px;
+  border-radius: 22px;
+  background: var(--wn-card);
+  color: var(--wn-ink);
+  text-align: center;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, .35);
+}
+
+.wn-burst {
+  margin: 6px 0 10px;
+  color: var(--wn-brand);
+  font-family: "Lilita One", "Arial Rounded MT Bold", "Trebuchet MS", sans-serif;
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 1.05;
+  text-shadow: 3px 3px 0 var(--wn-brand-soft);
+  transform: rotate(-4deg);
+  animation: wn-pop .5s cubic-bezier(.2, 1.6, .4, 1) both;
+}
+@keyframes wn-pop {
+  from { transform: rotate(-4deg) scale(.4); opacity: 0; }
+  to { transform: rotate(-4deg) scale(1); opacity: 1; }
+}
+@media (prefers-reduced-motion: reduce) { .wn-burst { animation: none; } }
+
+.wn-sub { margin-bottom: 10px; color: var(--wn-muted); font-size: 14px; font-weight: 800; }
+
+.wn-list {
+  flex: 1 1 auto;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  overflow-y: auto;
+  list-style: none;
+  text-align: left;
+}
+.wn-list li {
+  display: flex;
+  gap: 10px;
+  padding: 8px 0;
+  border-top: 1px solid var(--wn-line);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+.wn-list li:first-child, .wn-list .wn-group + li { border-top: 0; }
+.wn-list .wn-group {
+  display: block;
+  padding: 10px 0 2px;
+  border-top: 0;
+  color: var(--wn-muted);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+.wn-ic { flex: 0 0 28px; font-size: 22px; text-align: center; }
+.wn-list b { font-weight: 800; }
+
+.wn-go {
+  width: 100%;
+  margin-top: 14px;
+  padding: 14px 18px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--wn-brand);
+  color: var(--wn-on-brand);
+  cursor: pointer;
+  font-family: "Lilita One", "Arial Rounded MT Bold", "Trebuchet MS", sans-serif;
+  font-weight: 400;
+  font-size: 22px;
+  letter-spacing: .01em;
+}
+.wn-go:focus-visible { outline: 3px solid var(--wn-ink); outline-offset: 3px; }

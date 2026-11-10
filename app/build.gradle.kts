@@ -25,7 +25,7 @@ fun hasSigningVars(): Boolean {
 
 base {
     val versionCode = project.property("VERSION_CODE").toString().toInt()
-    archivesName = "messages-$versionCode"
+    archivesName = "scooter-texts-$versionCode"
 }
 
 android {
@@ -140,7 +140,7 @@ detekt {
 }
 
 dependencies {
-    implementation(libs.fossify.commons)
+    implementation(project(":commons"))
     implementation(libs.eventbus)
     implementation(libs.indicator.fast.scroll)
     implementation(libs.mmslib)

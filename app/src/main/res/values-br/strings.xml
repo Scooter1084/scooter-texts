@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_launcher_name">Kemennadennoù</string>
     <string name="type_a_message">Skrivañ ur gemennadenn…</string>
     <string name="message_not_sent_short">N\'eo ket bet kaset ar gemennadenn</string>
     <string name="message_not_sent_touch_retry">N\'eo ket bet kaset. Stokit evit kas en-dro.</string>

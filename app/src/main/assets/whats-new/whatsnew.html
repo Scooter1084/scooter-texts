@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>What's new</title>
+<!--
+  The shared Scooter "What's new" kit page (from outputs/whats-new-kit), loaded in a WebView by ScooterWhatsNew.kt.
+  Add new notes at the TOP with update = WHATS_NEW_VERSION (in ScooterWhatsNew.kt), and bump that number.
+  Don't restyle the kit.
+-->
+<link rel="stylesheet" href="whats-new.css">
+<style>html, body { margin: 0; height: 100%; background: transparent; }</style>
+</head>
+<body>
+<script src="whats-new.js"></script>
+<script>
+  var APP = "Scooter Texts";
+  var KEY = "scooter-texts-whats-new";
+  var NOTES = [
+    { id: "2026-11-10-orange", update: 1, icon: "🟠", text: "**Scooter orange, like your other apps.** Cream background, navy text, an orange icon and orange buttons. You can still pick other colors in **Settings › Customize colors**." },
+    { id: "2026-11-10-font", update: 1, icon: "🔤", text: "**The same friendly letters** as Household, Weather and Alarm, everywhere in the app." },
+    { id: "2026-11-10-whatsnew", update: 1, icon: "🎉", text: "**This card** shows up once after each update with what changed. See them all any time in **Settings › What's new**." },
+    { id: "2026-11-10-start", update: 1, icon: "💬", text: "**Scooter Texts** is your own text and picture message app: groups, blocking, backups and scheduled messages, all on your phone." }
+  ];
+
+  var params = new URLSearchParams(location.search);
+  ScooterWhatsNew.show({
+    app: APP,
+    notes: NOTES,
+    storageKey: KEY,
+    existingUser: params.get("existing") === "1",
+    all: params.get("all") === "1"
+  }).then(function (shown) { location.href = shown ? "whatsnew://done" : "whatsnew://none"; });
+</script>
+</body>
+</html>

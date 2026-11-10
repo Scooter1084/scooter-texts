@@ -1,44 +1,41 @@
-# Fossify Messages
-<img alt="Logo" src="graphics/icon.webp" width="120" />
+# Scooter Texts
 
-<a href='https://play.google.com/store/apps/details?id=org.fossify.messages'><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png' height=80/></a> <a href="https://f-droid.org/packages/org.fossify.messages/"><img src="https://fdroid.gitlab.io/artwork/badge/get-it-on-en.svg" alt="Get it on F-Droid" height=80/></a> <a href="https://apt.izzysoft.de/fdroid/index/apk/org.fossify.messages"><img src="https://gitlab.com/IzzyOnDroid/repo/-/raw/master/assets/IzzyOnDroid.png" alt="Get it on IzzyOnDroid" height=80/></a>
+<img alt="Scooter Texts icon" src="graphics/icon.svg" width="96" />
 
-Fossify Messages is your trusted messaging companion, designed to enhance your messaging experience in various ways.
+A personal SMS/MMS texting app for Android. It can be set as the phone's default messaging app.
 
-**📱 STAY CONNECTED WITH EASE:**  
-With Fossify Messages, you can effortlessly send SMS and MMS messages to stay connected with your loved ones. Enjoy SMS/MMS based group messaging and express yourself with photos, emojis, and quick greetings.
+## Download a test build
 
-**🚫 BLOCK UNWANTED MESSAGES:**  
-Take control of your messaging experience with a robust blocking feature, easily preventing unwanted messages, even from unknown contacts. You can also export and import blocked numbers for hassle-free backup. Additionally, customize your experience by preventing messages with specific words or phrases from reaching your inbox.
+1. Open the **Actions** tab of this repo and pick **Build debug APK**.
+2. Click **Run workflow** (or open the latest successful run).
+3. When it finishes, download **scooter-texts-debug** under *Artifacts*, unzip it, and install the `.apk` on your phone.
 
-**🔒 EFFORTLESS SMS BACKUP:**  
-Say goodbye to worries about losing important messages. Fossify Messages offers convenient SMS backup functionality by allowing you to export and import your messages. This feature ensures that you can easily switch devices without losing your valuable conversations.
+The debug build installs as **Scooter Texts (debug)** with the app ID `com.scooter1084.texts.debug`, so it can sit next to any other messaging app.
 
-**🚀 LIGHTNING-FAST AND LIGHTWEIGHT:**  
-Despite its powerful features, Fossify Messages boasts a remarkably small app size, making it quick and easy to download and install. Experience speed and efficiency while enjoying the peace of mind that comes with SMS backup.
+## The Scooter look
 
-**🔐 ENHANCED PRIVACY:**  
-Customize what appears on your lock screen for added privacy. Choose to display only the sender, message content, or nothing at all. Your messages are in your control.
+Same look as Scooter Household, Weather and Alarm:
+- **Colors:** tangerine orange `#FF7A1A` (icons, buttons, sent bubbles), cream `#FFF6EC` background, navy `#14213D`
+  text. They are the defaults in `commons/src/main/res/values/colors.xml`; Material You (wallpaper colors) is off by
+  default (`BaseConfig.isSystemThemeEnabled`). Customize colors in Settings still works.
+- **Font:** Nunito (from the shared kit), turned on once on first run by `helpers/ScooterLook.kt`.
+- **What's new:** the shared Scooter kit in `app/src/main/assets/whats-new/` (don't restyle it). For each update, add
+  notes at the TOP of `whatsnew.html` with `update` = the new number and bump `WHATS_NEW_VERSION` in `ScooterLook.kt`.
+  Each note shows once; a fresh install shows nothing; Settings › What's new shows all of them.
 
-**🔍 EFFICIENT MESSAGE SEARCH:**  
-Say goodbye to endless scrolling through conversations. Fossify Messages simplifies message retrieval with a quick and efficient search feature. Find what you need, when you need it.
+## Building it yourself
 
-**🌈 MODERN DESIGN & USER-FRIENDLY INTERFACE:**  
-Enjoy a clean, modern design with a user-friendly interface. The app features a material design and a dark theme option, providing a visually appealing and comfortable user experience.
+Requires JDK 17 and the Android SDK.
 
-**🌐 OPEN-SOURCE TRANSPARENCY:**  
-Your privacy is a top priority. Fossify Messages operates without requiring an internet connection, guaranteeing message security and stability. Our app is completely free of ads and does not request unnecessary permissions. Moreover, it is fully open-source, providing you with peace of mind, as you have access to the source code for security and privacy audits.
+```bash
+./gradlew assembleFossDebug
+```
 
-Make the switch to Fossify Messages and experience messaging the way it should be – private, efficient, and user-friendly. Download now and join our community committed to safeguarding your messaging experience.
+The APK ends up in `app/build/outputs/apk/foss/debug/`.
 
-➡️ Explore more Fossify apps: https://www.fossify.org<br>
-➡️ Open-Source Code: https://www.github.com/FossifyOrg<br>
-➡️ Join the community on Reddit: https://www.reddit.com/r/Fossify<br>
-➡️ Connect on Telegram: https://t.me/Fossify
+## Credits and license
 
-<div align="center">
-<img alt="App image" src="fastlane/metadata/android/en-US/images/phoneScreenshots/1_en-US.png" width="30%">
-<img alt="App image" src="fastlane/metadata/android/en-US/images/phoneScreenshots/2_en-US.png" width="30%">
-<img alt="App image" src="fastlane/metadata/android/en-US/images/phoneScreenshots/3_en-US.png" width="30%">
-</div>
-
+Scooter Texts is based on [Fossify Messages](https://github.com/FossifyOrg/Messages) and
+[Fossify Commons](https://github.com/FossifyOrg/Commons) (copied into the `commons/` folder),
+both licensed under the GNU General Public License v3.0.
+Scooter Texts is also licensed under the [GPL-3.0](LICENSE).
